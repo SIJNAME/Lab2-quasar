@@ -1,7 +1,5 @@
-# เปลี่ยนข้อความในฟอร์เป็นภาษาไทย
 <template>
   <div class="q-pa-md" style="max-width: 400px">
-
     <q-form
       @submit="onSubmit"
       @reset="onReset"
@@ -10,32 +8,28 @@
       <q-input
         filled
         v-model="name"
-        label="ชื่อ-สกุล *"
-        hint="ชื่อและนามสกุล"
+        label="你的名字 *"
+        hint="名和姓"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'กรุณาพิมพ์ชื่อ']"
+        :rules="[ val => val && val.length > 0 || 'Please type something']"
       />
-
       <q-input
         filled
         type="number"
         v-model="age"
-        label="อายุ *"
+        label="Your age *"
         lazy-rules
         :rules="[
-          val => val !== null && val !== '' || 'กรุณาใส่อายุ',
-          val => val > 0 && val < 100 || 'กรุณาใส่อายุจริง'
+          val => val !== null && val !== '' || 'Please type your age',
+          val => val > 0 && val < 100 || 'Please type a real age'
         ]"
       />
-
-      <q-toggle v-model="accept" label="ยอมรับ" />
-
+      <q-toggle v-model="accept" label="I accept the license and terms" />
       <div>
-        <q-btn label="ยอมรับ" type="submit" color="primary"/>
-        <q-btn label="ยกเลิก" type="reset" color="primary" flat class="q-ml-sm" />
+        <q-btn label="Submit" type="submit" color="primary"/>
+        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
-
   </div>
 </template>
 
